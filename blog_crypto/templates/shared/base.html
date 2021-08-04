@@ -14,43 +14,7 @@
 
 <body>
 <div class="container-pic">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
-        <div class="container">
-
-            <a class="navbar-brand" href="#">
-                <strong>CRYPTO Blog</strong>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <!-- Left -->
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Add Article</a>
-                    </li>
-                </ul>
-
-                <!-- Right -->
-                <ul class="navbar-nav nav-flex-icons">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Sign In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Sign Up</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    {% include 'shared/header_common.html' %}
     <div class="section-title">
         Crypto Blog
     </div>
@@ -60,7 +24,9 @@
 
     {% endblock %}
 </div>
-
+<div>
+    {% include 'shared/footer.html' %}
+</div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

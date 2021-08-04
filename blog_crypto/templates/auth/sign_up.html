@@ -1,0 +1,13 @@
+{% extends 'shared/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form action="{% url 'sign up' %}" method="post">
+        <h3>Register</h3>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-primary">Sign up</button>
+    </form>
+{% endblock %}

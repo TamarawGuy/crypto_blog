@@ -1,45 +1,11 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-    <div class="container-box">
-        <section class="blogs box">
-            <div>
-                <a href="#">
-                    <h4>New Surface Pro 7</h4>
-                </a>
-                <p>
-                    See how Katie Sowers, Asst. Coach for the 49ers,
-                    uses Surface Pro 7 to put her plans into play.
-                </p>
-            </div>
-            <div>
-                <a href="#">
-                    <h4>New Surface Pro 7</h4>
-                </a>
-                <p>
-                    See how Katie Sowers, Asst. Coach for the 49ers,
-                    uses Surface Pro 7 to put her plans into play.
-                </p>
-            </div>
-            <div>
-                <a href="#">
-                    <h4>New Surface Pro 7</h4>
-                </a>
-                <p>
-                    See how Katie Sowers, Asst. Coach for the 49ers,
-                    uses Surface Pro 7 to put her plans into play.
-                </p>
-            </div>
-            <div>
-                <a href="#">
-                    <h4>New Surface Pro 7</h4>
-                </a>
-                <p>
-                    See how Katie Sowers, Asst. Coach for the 49ers,
-                    uses Surface Pro 7 to put her plans into play.
-                </p>
-            </div>
-        </section>
+    <div class="container section">
+        <h2>Crypto Blog</h2>
+        <h3>Official</h3>
+        <p>Get up-to-date with the latest crypto news!</p>
+        <a class="btn btn-primary" href="{% url 'sign in' %}">Sign In</a>
+        <a class="btn btn-primary" href="{% url 'sign up' %}">Sign up</a>
     </div>
-
 {% endblock %}

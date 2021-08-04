@@ -1,17 +1,41 @@
 .container-pic {
     width: 100%;
-    min-height: 320px;
+    min-height: 350px;
     background-image: url("/static/img/blue_wallpaper.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    margin-bottom: 30px;
+}
+
+.section {
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+.section h3 {
+    margin-top: 20px;
+}
+
+.section p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.section a {
+    margin-top: 80px;
 }
 
 .box div {
     background-color: #fff;
     border: 2px #cccccc solid;
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
+    margin-top: 20px;
 }
 
 .blogs {
@@ -25,7 +49,8 @@
     color: #fff;
     text-align: center;
     font-size: 50px;
-    padding-top: 110px;
+    padding-top: 50px;
+    padding-bottom: 30px;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -34,4 +59,12 @@
 
 .navbar {
     margin-top: 15px;
+}
+
+footer {
+    padding: 20px;
+    margin-top: 20px;
+    color: #A9A9A9;
+    background: #000000;
+    text-align: center;
 }
