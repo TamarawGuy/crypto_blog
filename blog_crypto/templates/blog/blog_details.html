@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% include 'shared/header_blog.html' %}
 
-</body>
-</html>
+{% block content %}
+    <section class="container items">
+        <h3>{{ blog.author }} | {{ blog.date_posted|date:"F d, Y" }}</h3>
+
+        <div class="container-blog-mid">
+
+        </div>
+        <div class="blog-text">
+            {{ blog.content }}
+            {#            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, recusandae ratione iure mollitia#}
+            {#            adipisci exercitationem asperiores voluptatibus doloremque saepe quibusdam quasi accusamus commodi porro#}
+            {#            debitis? Error incidunt ipsa necessitatibus sit.#}
+            {#            Commodi, ipsa! Soluta a doloribus perspiciatis. Similique doloremque voluptatem odio distinctio dolorem#}
+            {#            facere cumque soluta illum non earum, in, repellendus quidem mollitia hic laudantium iure inventore nostrum#}
+            {#            fugit amet illo.#}
+            {#            Ipsum molestiae iste ad necessitatibus voluptatum mollitia similique blanditiis, asperiores accusamus#}
+            {#            perspiciatis totam corrupti rem quibusdam error a nesciunt amet suscipit aspernatur odio. Maiores ut libero#}
+            {#            eos temporibus cupiditate quaerat.#}
+            {#            Veniam esse sequi incidunt eveniet impedit tempora eius ad dolor ducimus vitae? Ut omnis dolor saepe, animi,#}
+            {#            deserunt adipisci recusandae sint, dignissimos culpa possimus nihil? Unde ea impedit tenetur perspiciatis.#}
+            {#            Ipsa iusto optio porro, unde reiciendis incidunt nostrum in, totam deleniti iste ad eaque voluptatum#}
+            {#            sapiente voluptas ratione voluptate atque expedita. Explicabo delectus ipsum minima corrupti, voluptatem#}
+            {#            quo. Expedita, at.#}
+            {#            Aliquam totam necessitatibus officiis quos, at quidem blanditiis id non possimus itaque veritatis iure#}
+            {#            consequatur, delectus a repellat! Dolorum facere corporis dicta error voluptatum velit minima nemo modi#}
+            {#            fugiat reprehenderit!#}
+            {#            Nesciunt nihil quam aliquam, nisi enim vero inventore pariatur expedita error ea ratione necessitatibus#}
+            {#            illum rerum corrupti eligendi quae excepturi doloremque sunt. Ad temporibus, ipsam quasi nulla maxime ipsum#}
+            {#            tempora.#}
+            {#            Libero dignissimos qui aliquam delectus sequi possimus facere, iste animi, fugiat vel consequatur ratione#}
+            {#            impedit, nisi est exercitationem quasi dolorum aspernatur fugit nam hic sunt repellat? Quibusdam amet nam#}
+            {#            ipsa!#}
+            {#            Porro aliquid beatae blanditiis ipsa quas laborum, sapiente dolore provident, dolorum itaque alias#}
+            {#            reiciendis. Eos porro numquam fugiat dolores expedita iusto quisquam, adipisci debitis veritatis saepe#}
+            {#            quibusdam necessitatibus sit ipsum.#}
+            {#            Id totam, rerum velit suscipit illum tempora tenetur voluptates eum. Omnis maxime, esse tempora amet hic#}
+            {#            non! Quibusdam mollitia veniam repudiandae facere illum animi atque repellat accusamus, excepturi magni in!#}
+            {#            Dolor fuga incidunt dicta optio dolorem excepturi cupiditate ad nemo quod inventore, possimus, nostrum nihil#}
+            {#            unde vitae magni non delectus quia molestiae repudiandae adipisci deserunt rem. Consequuntur sapiente nam#}
+            {#            officia.#}
+        </div>
+    </section>
+{% endblock %}
+
+{% include 'shared/footer.html' %}

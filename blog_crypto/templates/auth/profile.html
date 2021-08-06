@@ -1,0 +1,23 @@
+{% extends "shared/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="text-center">
+        <h1>Hello, {{ request.user }}!</h1>
+        <h5>This is your profile</h5>
+        {% if profile.profile_image %}
+            <img class="rounded-circle mb-3" src="{{ profile.profile_image.url }}" alt="" width="140"
+                 height="140">
+        {% else %}
+            <img class="rounded-circle mb-3" src="{% static 'img/default_user.jpg' %}" alt="" width="140"
+                 height="140">
+        {% endif %}
+        <div class="w-50 m-auto">
+            <form action="{% url 'profile details' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <button class="btn btn-success">Update</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

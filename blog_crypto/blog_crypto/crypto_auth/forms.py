@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
+from blog_crypto.crypto_auth.models import Profile
+
 UserModel = get_user_model()
 
 
@@ -30,3 +32,9 @@ class SignInForm(forms.Form):
 
     def save(self):
         return self.user
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('profile_image',)

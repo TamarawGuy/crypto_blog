@@ -1,7 +1,8 @@
 from django.contrib.auth import logout, login
 from django.shortcuts import render, redirect
 
-from blog_crypto.crypto_auth.forms import SignInForm, SignUpForm
+from blog_crypto.crypto_auth.forms import SignInForm, SignUpForm, ProfileForm
+from blog_crypto.crypto_auth.models import Profile
 
 
 def sign_up(request):
@@ -40,3 +41,21 @@ def sign_in(request):
 def sign_out(request):
     logout(request)
     return redirect('landing')
+
+
+def profile_details(request):
+    profile = Profile.objects.get(pk=request.user.id)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile details')
+    else:
+        form = ProfileForm(instance=profile)
+
+    context = {
+        'form': form,
+        'profile': profile,
+    }
+
+    return render(request, 'auth/profile.html', context)

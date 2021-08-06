@@ -1,45 +1,35 @@
 {% extends 'shared/base.html' %}
 
 {% block content %}
-    <div class="container-box">
-        <section class="blogs box">
-            <div>
-                <a href="#">
-                    <h4>New Surface Pro 7</h4>
-                </a>
-                <p>
-                    See how Katie Sowers, Asst. Coach for the 49ers,
-                    uses Surface Pro 7 to put her plans into play.
-                </p>
+    {% if blogs %}
+        {% for blog in blogs %}
+            <div class="container-3 box">
+                <div class="container-3-box">
+                    <h4>{{ blog.author }}</h4>
+                    <h3><a href="{% url 'blog post details' blog.id %}">{{ blog.title }}</a></h3>
+                    <p>{{ blog.content }}</p>
+                </div>
+                {#                <div class="container-3-box">#}
+                {#                    <h3>Box Eight</h3>#}
+                {#                    <p>Lorem, , ipsum dolor sit amet ipsum dolor sit amet consectetur adipisicing elit. Nemo, porro?</p>#}
+                {#                </div>#}
+                {#                <div class="container-3-box">#}
+                {#                    <h3>Box Nine</h3>#}
+                {#                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, porro?</p>#}
+                {#                </div>#}
+                {#                <div class="container-3-box">#}
+                {#                    <h3>Box Ten</h3>#}
+                {#                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, porro?</p>#}
+                {#                </div>#}
+                {#                <div class="container-3-box">#}
+                {#                    <h3>Box Eleven</h3>#}
+                {#                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, porro?</p>#}
+                {#                </div>#}
+                {#                <div class="container-3-box">#}
+                {#                    <h3>Box Twelve</h3>#}
+                {#                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, porro?</p>#}
+                {#                </div>#}
             </div>
-            <div>
-                <a href="#">
-                    <h4>New Surface Pro 7</h4>
-                </a>
-                <p>
-                    See how Katie Sowers, Asst. Coach for the 49ers,
-                    uses Surface Pro 7 to put her plans into play.
-                </p>
-            </div>
-            <div>
-                <a href="#">
-                    <h4>New Surface Pro 7</h4>
-                </a>
-                <p>
-                    See how Katie Sowers, Asst. Coach for the 49ers,
-                    uses Surface Pro 7 to put her plans into play.
-                </p>
-            </div>
-            <div>
-                <a href="#">
-                    <h4>New Surface Pro 7</h4>
-                </a>
-                <p>
-                    See how Katie Sowers, Asst. Coach for the 49ers,
-                    uses Surface Pro 7 to put her plans into play.
-                </p>
-            </div>
-        </section>
-    </div>
-
+        {% endfor %}
+    {% endif %}
 {% endblock %}
