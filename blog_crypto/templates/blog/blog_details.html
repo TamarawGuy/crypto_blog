@@ -2,13 +2,26 @@
 
 {% block content %}
     <section class="container items">
-        <h3>{{ blog.author }} | {{ blog.date_posted|date:"F d, Y" }}</h3>
-
+        <h2>{{ blog.author }} | {{ blog.date_posted|date:"F d, Y" }}</h2>
+        <h3>{{ blog.title }}</h3>
         <div class="container-blog-mid">
 
         </div>
         <div class="blog-text">
             {{ blog.content }}
+            <div>
+                <hr>
+                <p class="mt-2">Likes: {{ likes }}</p>
+                <a href="{% url 'like blog post' blog.id %}">
+                    {% if is_liked %}
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                    {% else %}
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    {% endif %}
+                </a>
+
+            </div>
+
             {#            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, recusandae ratione iure mollitia#}
             {#            adipisci exercitationem asperiores voluptatibus doloremque saepe quibusdam quasi accusamus commodi porro#}
             {#            debitis? Error incidunt ipsa necessitatibus sit.#}

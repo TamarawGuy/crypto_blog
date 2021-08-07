@@ -16,3 +16,15 @@ class BlogPost(models.Model):
         UserModel,
         on_delete=models.CASCADE,
     )
+
+
+class Like(models.Model):
+    blog = models.ForeignKey(
+        BlogPost,
+        on_delete=models.CASCADE,
+    )
+
+    user = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE,
+    )

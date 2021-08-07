@@ -1,9 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
 
-from blog_crypto.crypto_blog.forms import BlogPostForm
-from blog_crypto.crypto_blog.models import BlogPost
+from blog_crypto.crypto_blog.forms import BlogPostForm, EditBlogForm
+from blog_crypto.crypto_blog.models import BlogPost, Like
 
 
 def list_blogs(request):
@@ -38,14 +37,47 @@ def create_blog_post(request):
 def blog_post_details(request, pk):
     blog_post = BlogPost.objects.get(pk=pk)
     is_author = blog_post.author == request.user
-
+    is_liked = blog_post.like_set.filter(user_id=request.user.id).first()
+    likes = blog_post.like_set.count()
     context = {
         'blog': blog_post,
         'is_author': is_author,
+        'is_liked': is_liked,
+        'likes': likes,
     }
 
     return render(request, 'blog/blog_details.html', context)
 
 
+@login_required
 def edit_blog_post(request, pk):
-    pass
+    blog = BlogPost.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = EditBlogForm(request.POST, instance=blog)
+        if form.is_valid():
+            form.save()
+            return redirect('profile details')
+    else:
+        form = EditBlogForm(instance=blog)
+
+    context = {
+        'form': form,
+        'blog': blog,
+    }
+
+    return render(request, 'blog/blog_edit.html', context)
+
+
+def like_blog_post(request, pk):
+    blog_post = BlogPost.objects.get(pk=pk)
+    liked_by_user = blog_post.like_set.filter(user_id=request.user.id).first()
+
+    if liked_by_user:
+        liked_by_user.delete()
+    else:
+        like = Like(
+            blog=blog_post,
+            user=request.user,
+        )
+        like.save()
+    return redirect('blog post details', blog_post.id)

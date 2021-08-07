@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 
 from blog_crypto.crypto_auth.forms import SignInForm, SignUpForm, ProfileForm
 from blog_crypto.crypto_auth.models import Profile
+from blog_crypto.crypto_blog.models import BlogPost
 
 
 def sign_up(request):
@@ -53,9 +54,12 @@ def profile_details(request):
     else:
         form = ProfileForm(instance=profile)
 
+    user_blogs = BlogPost.objects.filter(author_id=request.user.id)
+
     context = {
         'form': form,
         'profile': profile,
+        'user_blogs': user_blogs,
     }
 
     return render(request, 'auth/profile.html', context)

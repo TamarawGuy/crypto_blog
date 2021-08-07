@@ -20,4 +20,18 @@
             </form>
         </div>
     </div>
+
+    {% if user_blogs %}
+        {% for blog in user_blogs %}
+            <div class="container-3 box">
+                <div class="container-3-box">
+                    <h4>{{ blog.author }}</h4>
+                    <h3><a href="{% url 'blog post details' blog.id %}">{{ blog.title }}</a></h3>
+                    <p>{{ blog.content }}</p>
+                    <p>Likes: {{ blog.like_set.count }}</p>
+                    <a class="btn btn-primary" href="{% url 'edit' blog.id %}">Edit</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock content %}
