@@ -23,7 +23,6 @@ def create_blog_post(request):
             blog_post.author = request.user
             blog_post.save()
             return redirect('landing')
-
     else:
         form = BlogPostForm()
 
