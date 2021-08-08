@@ -67,6 +67,7 @@ def edit_blog_post(request, pk):
     return render(request, 'blog/blog_edit.html', context)
 
 
+@login_required
 def like_blog_post(request, pk):
     blog_post = BlogPost.objects.get(pk=pk)
     liked_by_user = blog_post.like_set.filter(user_id=request.user.id).first()
