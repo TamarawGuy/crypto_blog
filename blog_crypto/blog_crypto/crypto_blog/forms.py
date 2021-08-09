@@ -33,6 +33,12 @@ class BlogPostForm(forms.ModelForm):
 
 
 class EditBlogForm(BlogPostForm):
-    class Meta:
-        model = BlogPost
-        exclude = ('author',)
+    pass
+
+
+class DeleteBlogForm(BlogPostForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields:
+            self.fields[field].widget.attrs['disabled'] = True

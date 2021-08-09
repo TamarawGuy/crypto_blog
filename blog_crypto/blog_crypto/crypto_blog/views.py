@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from blog_crypto.crypto_blog.forms import BlogPostForm, EditBlogForm
+from blog_crypto.crypto_blog.forms import BlogPostForm, EditBlogForm, DeleteBlogForm
 from blog_crypto.crypto_blog.models import BlogPost, Like
 
 
@@ -65,6 +65,21 @@ def edit_blog_post(request, pk):
     }
 
     return render(request, 'blog/blog_edit.html', context)
+
+
+def delete_blog(request, pk):
+    blog = BlogPost.objects.get(pk=pk)
+    form = DeleteBlogForm(instance=blog)
+    if request.method == 'POST':
+        blog.delete()
+        return redirect('profile details')
+
+    context = {
+        'blog': blog,
+        'form': form,
+    }
+
+    return render(request, 'blog/blog_delete.html', context)
 
 
 @login_required

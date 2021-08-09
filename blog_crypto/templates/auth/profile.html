@@ -30,6 +30,7 @@
                     <p>{{ blog.content }}</p>
                     <p>Likes: {{ blog.like_set.count }}</p>
                     <a class="btn btn-primary" href="{% url 'edit' blog.id %}">Edit</a>
+                    <a class="btn btn-primary" href="{% url 'delete' blog.id %}">Delete</a>
                 </div>
             </div>
         {% endfor %}
