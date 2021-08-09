@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
 from blog_crypto.crypto_blog.forms import BlogPostForm, EditBlogForm, DeleteBlogForm
@@ -6,7 +7,12 @@ from blog_crypto.crypto_blog.models import BlogPost, Like
 
 
 def list_blogs(request):
-    blogs = BlogPost.objects.all()
+    blog_list = BlogPost.objects.all()
+
+    p = Paginator(blog_list, 1)
+    page = request.GET.get('page')
+    blogs = p.get_page(page)
+
     context = {
         'blogs': blogs,
     }

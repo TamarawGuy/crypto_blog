@@ -39,17 +39,8 @@
 }
 
 .container-3 {
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
-    /*justify-content: flex-start;*/
-    /*align-items: center;*/
+    margin-bottom: 20px;
 }
-
-/*.container-3-box {*/
-/*    width: 30%;*/
-/*    height: 200px;*/
-/*    flex-basis: 32%;*/
-/*}*/
 
 .section-title {
     color: #ffffff;
