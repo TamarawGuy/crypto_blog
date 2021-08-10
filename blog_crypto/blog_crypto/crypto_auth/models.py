@@ -42,6 +42,10 @@ class CryptoUser(AbstractBaseUser, PermissionsMixin):
         unique=True,
     )
 
+    is_active = models.BooleanField(
+        default=True,
+    )
+
     is_staff = models.BooleanField(
         default=False,
     )

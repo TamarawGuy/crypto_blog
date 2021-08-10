@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -141,5 +141,12 @@ LOGIN_URL = reverse_lazy('sign in')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 AUTH_USER_MODEL = 'crypto_auth.CryptoUser'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('DJANGO_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_PASSWORD')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

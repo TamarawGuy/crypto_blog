@@ -10,4 +10,9 @@
         {{ form|crispy }}
         <button class="btn btn-primary">Sign in</button>
     </form>
+    <div>
+        <small class="text-muted">
+            Need An Account? <a class="ml-2" href="{% url 'sign up' %}">Sign Up Now</a>
+        </small>
+    </div>
 {% endblock %}
