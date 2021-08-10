@@ -1,8 +1,6 @@
-from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from blog_crypto.crypto_blog.forms import BlogPostForm
-from blog_crypto.crypto_blog.models import BlogPost
 
 
 class BlogFormTest(TestCase):
