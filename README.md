@@ -1,10 +1,6 @@
-# crypto_blog
-
-
-
 # Project Title
 
-# crypto_blog
+## crypto_blog
 
 Crypto blog is a website where users can write articles about cryptocurrencies.
 
