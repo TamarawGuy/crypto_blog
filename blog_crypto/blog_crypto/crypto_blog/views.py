@@ -73,6 +73,7 @@ def edit_blog_post(request, pk):
     return render(request, 'blog/blog_edit.html', context)
 
 
+@login_required
 def delete_blog(request, pk):
     blog = BlogPost.objects.get(pk=pk)
     form = DeleteBlogForm(instance=blog)
